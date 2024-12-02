@@ -1,0 +1,51 @@
+{
+  "name": "advent-of-code-2024",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "description": "Advent of Code 2024",
+  "scripts": {
+    "build": "npx tsc",
+    "declarations": "npx rimraf types/ && npx tsc --emitDeclarationOnly",
+    "dev": "cross-env NODE_ENV=development npx tsx --trace-warnings --inspect=0.0.0.0:9229",
+    "start": "cross-env NODE_ENV=production npx tsx",
+    "test": "echo \"No tests yet...\"",
+    "typecheck": "npx tsc --noEmit",
+    "typedoc": "npx typedoc --out docs --entryPointStrategy expand ./src --excludeInternal false --excludeNotDocumented false --plugin typedoc-plugin-markdown --readme none",
+    "typedoc-html": "npx typedoc --out docs/docs --entryPointStrategy expand ./src --excludeInternal false --excludeNotDocumented false --readme none"
+  },
+  "author": {
+    "name": "Michael Sprague",
+    "email": "mikesprague@gmail.com"
+  },
+  "repository": {
+    "url": "https://github.com/mikesprague/advent-of-code-2024"
+  },
+  "engines": {
+    "node": ">= 20.x",
+    "npm": ">= 10.x"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "cross-env": "7.0.3",
+    "cz-git": "1.10.1",
+    "tsx": "4.19.2",
+    "typedoc": "0.26.11",
+    "typedoc-plugin-markdown": "4.2.10",
+    "typescript": "5.6.3"
+  },
+  "peerDependencies": {
+    "@types/node": "22.7.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
+  },
+  "volta": {
+    "node": "22.11.0",
+    "npm": "10.9.1"
+  }
+}
