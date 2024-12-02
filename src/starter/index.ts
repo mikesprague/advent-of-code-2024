@@ -1,3 +1,5 @@
+// https://adventofcode.com/2024/day/X
+
 const { hrtime } = process;
 
 (async () => {
