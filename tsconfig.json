@@ -3,24 +3,22 @@
     "strict": true,
     "experimentalDecorators": true,
     "strictNullChecks": true,
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "strictFunctionTypes": true,
-    "rootDir": "src",
-    "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "types": ["node"],
-    "lib": ["ESNext"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "declarationDir": "types",
-    "declarationMap": true
+    "allowJs": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true
   },
-  "ts-node": {
-    "esm": true,
-    "swc": true
+  "paths": {
+    "@/*": ["./*"]
   },
   "include": ["src/**/*.ts"],
   "exclude": [
