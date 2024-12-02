@@ -60,7 +60,36 @@ const { hrtime } = process;
   const totalOfDiffs = diffs.reduce((a, b) => a + b, 0);
 
   // output the total
-  console.log(totalOfDiffs);
+  console.log(`Part 1: ${totalOfDiffs}`);
+
+  // instantiate itemsWithCounts array
+  const itemsWithCounts = [];
+
+  // loop over the left list
+  for (const item of leftList) {
+    // check how many times the item appears in the right list
+    const count = rightList.filter((x) => x === item).length;
+    // add the count to the counts array
+    itemsWithCounts.push([item, count]);
+  }
+  // console.log(itemsWithCounts);
+
+  // instantiate similarityScores array
+  const similarityScores = [];
+
+  // loop over the itemsWithCounts array
+  for (const [item, count] of itemsWithCounts) {
+    // calculate the similarity score
+    const similarityScore = item * count;
+    // add the similarity score to the similarityScores array
+    similarityScores.push(similarityScore);
+  }
+
+  // sum all similarity scores
+  const totalOfSimilarityScores = similarityScores.reduce((a, b) => a + b, 0);
+
+  // output the total
+  console.log(`Part 2: ${totalOfSimilarityScores}`);
 
   const debugEnd = hrtime(debugStart);
   console.log(
