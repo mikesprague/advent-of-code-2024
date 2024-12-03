@@ -34,10 +34,56 @@ const multipliedMatches = matchedNumbers.map((match) => match[2]);
 // console.log(multipliedMatches.length);
 
 // sum all the multiplied numbers
-const sum = multipliedMatches.reduce((acc, curr) => acc + curr, 0);
+const sumMatches = multipliedMatches.reduce((acc, curr) => acc + curr, 0);
 
-// output the result
-console.log(`Result: ${sum}`);
+// output the result for part one
+console.log(`Part one result: ${sumMatches}`);
+
+// array to store clean matched numbers
+const cleanMatchedNumbers = [];
+
+// split the input by 'do()'
+const segments = input.split('do()');
+
+// iterate through all segments
+for (const segment of segments) {
+  // split the segment by 'don't()'
+  const [goodPart, badPart] = segment.split(`don't()`);
+
+  // find all matches in the good part
+  const goodPartMatches = goodPart.match(regex);
+
+  // if there are no matches, skip
+  if (!goodPartMatches) {
+    continue;
+  }
+
+  // iterate through all matches and extract numbers
+  for (const match of goodPartMatches) {
+    const cleanMatch = match.replace('mul(', '').replace(')', '');
+    // console.log(cleanMatch);
+    const [num1, num2] = cleanMatch.split(',');
+    cleanMatchedNumbers.push([
+      Number(num1),
+      Number(num2),
+      Number(num1) * Number(num2),
+    ]);
+  }
+}
+// console.log(cleanMatchedNumbers);
+
+// get just the multiplied numbers
+const cleanMultipliedMatches = cleanMatchedNumbers.map((match) => match[2]);
+// console.log(cleanMultipliedMatches);
+
+// sum all the multiplied numbers
+const sumCleanMultipliedMatches = cleanMultipliedMatches.reduce(
+  (acc, curr) => acc + curr,
+  0
+);
+
+// output the result for part two
+console.log(`Part two result: ${sumCleanMultipliedMatches}`);
 
 const { hrtime } = process;
 
