@@ -30,7 +30,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "cross-env": "7.0.3",
-    "cz-git": "1.11.0",
+    "cz-git": "1.11.1",
     "tsx": "4.19.3",
     "tsconfig-paths": "4.2.0",
     "typedoc": "0.27.9",
